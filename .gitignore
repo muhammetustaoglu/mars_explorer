@@ -4,3 +4,9 @@
 
 /.vs
 /app/src/obj
+/app/src/bin/Debug/net5.0
+/app/test/marx_explorer_test/bin/Debug/net5.0
+/app/test/marx_explorer_test/obj
+/lib/mars_explorer_service/bin/Debug/net5.0
+/lib/mars_explorer_service/obj
+/lib/marx_explorer_container/obj
