@@ -25,8 +25,7 @@ namespace marx_explorer_test
                 "MMRMMRMRRM"
             };
 
-            List<string> response = new();
-            response = exploreService.Explore(lines);
+            List<string> response = exploreService.Explore(lines);
             Assert.Equal(2, response.Count);
             Assert.Equal("1 3 N", response[0]);
             Assert.Equal("5 1 E", response[1]);
@@ -45,7 +44,7 @@ namespace marx_explorer_test
                 "MMRMMRMRRM"
             };
 
-            Assert.Throws<ArgumentException>(()=> exploreService.Explore(lines));
+            Assert.Throws<ArgumentException>(() => exploreService.Explore(lines));
         }
 
         [Fact]
