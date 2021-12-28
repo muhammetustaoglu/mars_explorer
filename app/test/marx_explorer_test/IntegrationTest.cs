@@ -80,7 +80,7 @@ namespace marx_explorer_test
             List<string> lines = new List<string>()
             {
                 "5 5",
-                "1 2 M",
+                "1 2 E",
                 "MMRA"
             };
 
