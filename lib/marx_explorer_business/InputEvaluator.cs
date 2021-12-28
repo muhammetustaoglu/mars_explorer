@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace mars_explorer_business
 {
@@ -18,34 +17,67 @@ namespace mars_explorer_business
         {
             string[] horizon = inputLines[0].Trim().Split(' ');
 
-            try
-            {
-                this.ExploreEntity.HorizonX = int.Parse(horizon[0]);
-                this.ExploreEntity.HorizonY = int.Parse(horizon[1]);
-                List<string> inputLinesExceptFirst = inputLines.Skip(1).ToList();
-                Rover rover = null;
+            if (inputLines.Count == 1)
+                throw new ArgumentException("No rover defined");
 
-                for (int i = 0; i <= inputLinesExceptFirst.Count - 1; i++)
-                {
-                    if (i % 2 == 0)
-                    {
-                        rover = new Rover();
-                        string[] roverPosition = inputLinesExceptFirst[i].Split(' ');
-                        rover.PointX = int.Parse(roverPosition[0]);
-                        rover.PointY = int.Parse(roverPosition[1]);
-                        rover.Direction = (Direction)Enum.Parse(typeof(Direction), roverPosition[2]);
-                    }
-                    else if (i % 2 == 1)
-                    {
-                        rover.Moves = inputLinesExceptFirst[i].ToCharArray().ToList();
-                        //Regex.Split(inputLinesExceptFirst[i], string.Empty).ToList();
-                        this.ExploreEntity.Rovers.Add(rover);
-                    }
-                }
-            }
-            catch (ArgumentException)
+            int horizonX, horizonY;
+
+            if (int.TryParse(horizon[0], out horizonX))
+                this.ExploreEntity.HorizonX = horizonX;
+            else
+                throw new ArgumentException("Horizon X should be positive integer");
+
+            if (int.TryParse(horizon[1], out horizonY))
+                this.ExploreEntity.HorizonY = horizonY;
+            else
+                throw new ArgumentException("Horizon Y should be positive integer");
+
+            if (this.ExploreEntity.HorizonX < 0 || this.ExploreEntity.HorizonY < 0)
+                throw new ArgumentException("Horizon can not be less than 0");
+
+            List<string> inputLinesExceptFirst = inputLines.Skip(1).ToList();
+            Rover rover = null;
+            int roverX, roverY;
+            string direction = string.Empty;
+
+            for (int i = 0; i <= inputLinesExceptFirst.Count - 1; i++)
             {
-                throw;
+                if (i % 2 == 0)
+                {
+                    rover = new Rover();
+                    this.ExploreEntity.Rovers.Add(rover);
+                    string[] roverPosition = inputLinesExceptFirst[i].Split(' ');
+
+                    if (roverPosition.Length != 3)
+                        throw new ArgumentException("Line requires 2 positive digits and 1 direction with 1 space between them");
+
+                    if (int.TryParse(roverPosition[0], out roverX))
+                        rover.PointX = roverX;
+                    else
+                        throw new ArgumentException("Rover X point should be positive integer");
+
+                    if (int.TryParse(roverPosition[1], out roverY))
+                        rover.PointY = roverY;
+                    else
+                        throw new ArgumentException("Rover Y point should be positive integer");
+
+                    rover.PointX = roverX;
+                    rover.PointY = roverY;
+
+                    direction = roverPosition[2];
+
+                    if (direction != "N" && direction != "S" && direction != "W" && direction != "E")
+                        throw new ArgumentException("Direction can only be N,S,W,E");
+
+                    rover.Direction = (Direction)Enum.Parse(typeof(Direction), direction);
+                }
+                else if (i % 2 == 1)
+                {
+                    rover.Moves = inputLinesExceptFirst[i].ToCharArray().ToList();
+
+                    if (rover.Moves.Any(p => p != 'M' && p != 'L' && p != 'R'))
+                        throw new ArgumentException("Rover command can only be M,L,R");
+                }
             }
 
             return this.ExploreEntity;
