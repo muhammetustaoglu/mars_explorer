@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
@@ -10,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\mars_explorer_container\mars_explorer_container.csproj" />
+    <ProjectReference Include="..\mars_explorer_service\mars_explorer_service.csproj" />
   </ItemGroup>
 
 </Project>

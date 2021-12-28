@@ -9,9 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{84A88B87-EF9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D307D5D6-3F74-403D-8851-8C9F6819DA3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mars_explorer_service", "lib\mars_explorer_service\mars_explorer_service.csproj", "{665FBDA7-0498-49C8-80F2-0A8E8596B35D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mars_explorer_service", "lib\mars_explorer_service\mars_explorer_service.csproj", "{665FBDA7-0498-49C8-80F2-0A8E8596B35D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "marx_explorer_test", "app\test\marx_explorer_test\marx_explorer_test.csproj", "{F212D06A-5150-4231-80E2-67731B27D5F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "marx_explorer_test", "app\test\marx_explorer_test\marx_explorer_test.csproj", "{F212D06A-5150-4231-80E2-67731B27D5F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mars_explorer_business", "lib\marx_explorer_business\mars_explorer_business.csproj", "{DF9171D3-D715-41B1-BC4E-1FD191FA3379}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mars_explorer_entity", "lib\marx_explorer_entity\mars_explorer_entity.csproj", "{FF305559-4770-4255-9E9F-86B5E60FA04F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mars_explorer_container", "lib\mars_explorer_container\mars_explorer_container.csproj", "{015FC448-3BFA-4DC8-B90A-5FCC855B9C32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +37,18 @@ Global
 		{F212D06A-5150-4231-80E2-67731B27D5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F212D06A-5150-4231-80E2-67731B27D5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F212D06A-5150-4231-80E2-67731B27D5F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9171D3-D715-41B1-BC4E-1FD191FA3379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9171D3-D715-41B1-BC4E-1FD191FA3379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9171D3-D715-41B1-BC4E-1FD191FA3379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9171D3-D715-41B1-BC4E-1FD191FA3379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF305559-4770-4255-9E9F-86B5E60FA04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF305559-4770-4255-9E9F-86B5E60FA04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF305559-4770-4255-9E9F-86B5E60FA04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF305559-4770-4255-9E9F-86B5E60FA04F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{015FC448-3BFA-4DC8-B90A-5FCC855B9C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{015FC448-3BFA-4DC8-B90A-5FCC855B9C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{015FC448-3BFA-4DC8-B90A-5FCC855B9C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{015FC448-3BFA-4DC8-B90A-5FCC855B9C32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +57,9 @@ Global
 		{092064F7-95BB-4055-913A-BA01739F5770} = {84A88B87-EF9D-4199-85C5-1C0AB0583706}
 		{665FBDA7-0498-49C8-80F2-0A8E8596B35D} = {84A88B87-EF9D-4199-85C5-1C0AB0583706}
 		{F212D06A-5150-4231-80E2-67731B27D5F2} = {D307D5D6-3F74-403D-8851-8C9F6819DA3E}
+		{DF9171D3-D715-41B1-BC4E-1FD191FA3379} = {84A88B87-EF9D-4199-85C5-1C0AB0583706}
+		{FF305559-4770-4255-9E9F-86B5E60FA04F} = {84A88B87-EF9D-4199-85C5-1C0AB0583706}
+		{015FC448-3BFA-4DC8-B90A-5FCC855B9C32} = {84A88B87-EF9D-4199-85C5-1C0AB0583706}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F383762-8D0F-4504-85E2-96B55D94140E}

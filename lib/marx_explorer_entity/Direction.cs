@@ -1,4 +1,4 @@
-﻿namespace mars_explorer_service
+﻿namespace mars_explorer_entity
 {
     public enum Direction
     {

@@ -1,4 +1,5 @@
-﻿using mars_explorer_service;
+﻿using mars_explorer_container;
+using mars_explorer_service;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -21,24 +22,16 @@ namespace mars_explorer
                 return;
             }
 
-            ServiceProvider serviceProvider = new ServiceCollection()
-            .AddTransient<IExploreService, ExploreService>()
-            .AddTransient<IEvaluator>(p => new InputEvaluator(lines))
-                .BuildServiceProvider();
+            ServiceProvider serviceProvider = (ServiceProvider)Bootstrapper.Bootstrap();
 
             IExploreService exploreService = serviceProvider.GetService<IExploreService>();
 
             try
             {
-                foreach (Rover item in exploreService.Rovers)
-                {
-                    exploreService.Explore(item);
+                List<string> response = exploreService.Explore(lines);
 
-                    if (item.PointX < 0 || item.PointX > exploreService.HorizonX || item.PointY < 0 || item.PointY > exploreService.HorizonY)
-                        throw new ArgumentException("Coordinates are out of rectangle surface with respect to given points.");
-
-                    Console.WriteLine(string.Format("{0} {1} {2}"), item.PointX, item.PointY, item.Direction.ToString());
-                }
+                foreach (string item in response)
+                    Console.WriteLine(item);
             }
             catch (Exception ex)
             {

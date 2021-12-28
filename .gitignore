@@ -10,3 +10,9 @@
 /lib/mars_explorer_service/bin/Debug/net5.0
 /lib/mars_explorer_service/obj
 /lib/marx_explorer_container/obj
+/lib/mars_explorer_container/bin/Debug/net5.0
+/lib/mars_explorer_container/obj
+/lib/marx_explorer_business/bin/Debug/net5.0
+/lib/marx_explorer_business/obj
+/lib/marx_explorer_entity/bin/Debug/net5.0
+/lib/marx_explorer_entity/obj
