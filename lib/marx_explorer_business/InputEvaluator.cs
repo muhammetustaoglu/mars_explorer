@@ -7,6 +7,8 @@ namespace mars_explorer_business
 {
     public class InputEvaluator : IEvaluator
     {
+    private const string[] Directions=new[]{"N","S","W","E"};
+    private const string[] Commands=new[]{"L","R","M"};
         protected IExploreEntity ExploreEntity { get; set; }
         public InputEvaluator(IExploreEntity exploreEntity)
         {
@@ -66,8 +68,8 @@ namespace mars_explorer_business
 
                     direction = roverPosition[2];
 
-                    if (direction != "N" && direction != "S" && direction != "W" && direction != "E")
-                        throw new ArgumentException("Direction can only be N,S,W,E");
+                    if (!Directions.Contains(direction))
+                        throw new ArgumentException($"Direction can only be {string.Join(",",Directions)}");
 
                     rover.Direction = (Direction)Enum.Parse(typeof(Direction), direction);
                 }
@@ -75,8 +77,8 @@ namespace mars_explorer_business
                 {
                     rover.Moves = inputLinesExceptFirst[i].ToCharArray().ToList();
 
-                    if (rover.Moves.Any(p => p != 'M' && p != 'L' && p != 'R'))
-                        throw new ArgumentException("Rover command can only be M,L,R");
+                    if (rover.Moves.All(p => Commands.Contains(p))
+                        throw new ArgumentException($"Rover command can only be {string.Join(",",Commands)}");
                 }
             }
 
